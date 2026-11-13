@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMPN 2 CIPONGKOR</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Arial,sans-serif}
+body{background:#f4f7ff;color:#1e293b;line-height:1.6}
+a{text-decoration:none}
+header{background:#0b2a5b;color:white;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:99}
+header b{font-size:22px} header b span{color:#ff9f2e}
+nav a{color:white;margin-left:18px;font-weight:600;font-size:15px}
+.hero{background:linear-gradient(135deg,#0b2a5b,#1a56c4);color:white;padding:50px 20px;display:flex;flex-wrap:wrap;align-items:center;gap:30px;justify-content:center}
+.hero-text{max-width:560px} .hero-text h1{font-size:48px;line-height:1.1} .hero-text h1 span{color:#ff9f2e}
+.btn{display:inline-block;padding:13px 24px;border-radius:10px;font-weight:700;margin-right:10px}
+.btn-orange{background:#ff8a00;color:white} .btn-white{background:white;color:#0b2a5b}
+.hero-card{background:white;color:#1e293b;border-radius:18px;padding:22px;width:340px;box-shadow:0 10px 30px rgba(0,0,0,.25);text-align:center}
+.countdown{display:flex;gap:10px;justify-content:center;margin:16px 0}
+.countdown div{background:#fff1dc;border-radius:12px;padding:10px;width:70px}
+.countdown b{font-size:26px;color:#e67300;display:block}
+.section{max-width:1100px;margin:auto;padding:45px 20px}
+.section h2{font-size:30px;color:#0b2a5b;margin-bottom:6px} .section p.sub{color:#64748b;margin-bottom:22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.card{background:white;border-radius:16px;padding:20px;box-shadow:0 4px 16px rgba(0,0,0,.07);border-top:5px solid #1a56c4}
+.card a{display:inline-block;margin-top:12px;background:#0b2a5b;color:white;padding:9px 16px;border-radius:8px;font-weight:600}
+.card.orange{border-top-color:#ff8a00} .card.orange a{background:#ff8a00}
+table{width:100%;border-collapse:collapse;background:white;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px rgba(0,0,0,.07)}
+th{background:#0b2a5b;color:white;padding:13px;text-align:left} td{padding:12px 13px;border-bottom:1px solid #e2e8f0}
+.badge{background:#fff1dc;color:#b45309;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700}
+.rules{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.rule{background:#eef4ff;border-radius:14px;padding:18px}
+.form-box{background:white;border-radius:16px;padding:24px;box-shadow:0 4px 16px rgba(0,0,0,.07);max-width:600px;margin:auto}
+input,select{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:10px;margin:8px 0 14px}
+button{width:100%;padding:13px;background:#ff8a00;color:white;border:none;border-radius:10px;font-weight:700;font-size:16px;cursor:pointer}
+.saran{border:1px solid #cbd5e1;border-radius:10px;max-height:200px;overflow:auto;background:white;display:none;margin-top:-10px;margin-bottom:12px}
+.saran div{padding:10px 12px;cursor:pointer;border-bottom:1px solid #f1f5f9}
+.saran div:hover{background:#eef4ff} .saran b{color:#0b2a5b}
+footer{background:#0b2a5b;color:white;text-align:center;padding:22px;margin-top:30px}
+@media(max-width:700px){.hero-text h1{font-size:36px} nav{display:none}}
+</style>
+</head>
+<body>
+<header><b>SMPN 2 CIPONGKOR</span></b><nav><a href="#beranda">Beranda</a><a href="#jadwal">Jadwal</a><a href="#mapel">Mata Pelajaran</a><a href="#hasil">Absen</a></nav></header>
+
+<section class="hero" id="beranda">
+  <div class="hero-text"><p>SEMESTER GANJIL 2026/2027 • CIPONGKOR</p><h1>Penilaian Sumatif<br><span>Akhir Semester</span><br>SMPN 2 CIPONGKOR</h1><p>Siap, Fokus, dan Berprestasi! Cek jadwal, kerjakan ujian, dan lihat hasilmu di sini. Tetap semangat & jujur ya!</p><a class="btn btn-orange" href="#mapel">▶ Mulai Ujian</a><a class="btn btn-white" href="#jadwal">📅 Jadwal PSAS</a></div>
+  <div class="hero-card"><p>⏰ PSAS DIMULAI DALAM</p><h2>2 Desember 2026</h2><div class="countdown"><div><b id="d">00</b><small>Hari</small></div><div><b id="h">00</b><small>Jam</small></div><div><b id="m">00</b><small>Menit</small></div><div><b id="s">00</b><small>Detik</small></div></div><p style="font-size:14px;color:#64748b">Kelas 7A-7E • 8A-8E • 9A-9F | 07.30 - Selesai</p></div>
+</section>
+
+<section class="section" id="jadwal"><h2>📅 Jadwal Ujian PSAS</h2><p class="sub">Jadwal resmi SMPN 2 Cipongkor - Kelas 7A-7E, 8A-8E, 9A-9F</p>
+<table><tr><th>Hari / Tanggal</th><th>Kelas 7 (A-E)</th><th>Kelas 8 (A-E)</th><th>Kelas 9 (A-F)</th><th>Waktu</th></tr>
+<tr><td><b>Senin, 2 Des</b></td><td>Bahasa Indonesia</td><td>Matematika</td><td>IPA</td><td><span class="badge">07.30 - 09.00</span></td></tr>
+<tr><td><b>Selasa, 3 Des</b></td><td>Matematika</td><td>Bahasa Indonesia</td><td>Bahasa Inggris</td><td><span class="badge">07.30 - 09.00</span></td></tr>
+<tr><td><b>Rabu, 4 Des</b></td><td>IPA</td><td>IPS</td><td>Matematika</td><td><span class="badge">07.30 - 09.00</span></td></tr>
+<tr><td><b>Kamis, 5 Des</b></td><td>Bahasa Inggris</td><td>PAI / Agama</td><td>IPS</td><td><span class="badge">07.30 - 09.00</span></td></tr>
+<tr><td><b>Jumat, 6 Des</b></td><td>IPS / Informatika</td><td>Bahasa Inggris</td><td>PPKn</td><td><span class="badge">07.30 - 09.00</span></td></tr></table></section>
+
+<section class="section" id="mapel" style="background:white"><h2>📚 Mata Pelajaran - Klik Untuk Ujian</h2><p class="sub">Klik mapel, langsung terbuka Google Form ujian.</p>
+<div class="grid">
+<div class="card orange"><h3>Bahasa Indonesia</h3><p>Kelas 7 • 35 Soal • 90 Menit</p><a href="https://forms.gle/T3vgZcp14DfQzKPk7" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>🔢 Matematika</h3><p>Kelas 7 • 30 Soal • 90 Menit</p><a href="https://forms.gle/XXXX-MTK" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>🔬 IPA</h3><p>Kelas 7 • 30 Soal • 90 Menit</p><a href="https://forms.gle/XXXX-IPA" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>🌍 IPS</h3><p>Kelas 7 • 30 Soal • 90 Menit</p><a href="https://forms.gle/XXXX-IPS" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>Bahasa Inggris</h3><p>Kelas 7 • 30 Soal • 90 Menit</p><a href="https://forms.gle/XXXX-INGGRIS" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>💻 Informatika</h3><p>Kelas 7 • 25 Soal • 60 Menit</p><a href="https://forms.gle/XXXX-INFORMATIKA" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>PJOK</h3><p>Kelas 7 • 25 Soal • 60 Menit</p><a href="https://forms.gle/XXXX-INFORMATIKA" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>PPKN</h3><p>Kelas 7 • 25 Soal • 60 Menit</p><a href="https://forms.gle/XXXX-INFORMATIKA" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>Bahasa Sunda</h3><p>Kelas 7 • 25 Soal • 60 Menit</p><a href="https://forms.gle/XXXX-INFORMATIKA" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>Prakarya</h3><p>Kelas 7 • 25 Soal • 60 Menit</p><a href="https://forms.gle/XXXX-INFORMATIKA" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>PAI / AGAMA</h3><p>Kelas 7 • 25 Soal • 60 Menit</p><a href="https://forms.gle/XXXX-INFORMATIKA" target="_blank">Kerjakan Soal →</a></div>
+<div class="card orange"><h3>Seni Budaya</h3><p>Kelas 7 • 25 Soal • 60 Menit</p><a href="https://forms.gle/XXXX-INFORMATIKA" target="_blank">Kerjakan Soal →</a></div>
+</div></section>
+
+<section class="section" id="hasil" style="background:#fff7ed;border-radius:20px">
+<h2>🎓 Absen Ujian - Cari Nama Kamu</h2>
+<p class="sub">1. Pilih kelas dulu &nbsp; 2. Ketik nama (contoh: <b>ADILLA</b>) &nbsp; 3. Klik nama kamu yang muncul &nbsp; • Total <b id="totalSiswa">599</b> siswa sudah terdaftar</p>
+<div class="form-box">
+<label>1. Pilih Kelas</label>
+<select id="kelas" onchange="filterKelas()">
+<option value="">-- Semua Kelas --</option>
+<optgroup label="Kelas 7"><option>7A</option><option>7B</option><option>7C</option><option>7D</option><option>7E</option></optgroup>
+<optgroup label="Kelas 8"><option>8A</option><option>8B</option><option>8C</option><option>8D</option><option>8E</option></optgroup>
+<optgroup label="Kelas 9"><option>9A</option><option>9B</option><option>9C</option><option>9D</option><option>9E</option><option>9F</option></optgroup>
+</select>
+
+<label>2. Cari Nama Kamu (Ketik 2 Huruf Saja)</label>
+<input type="text" id="cariNama" placeholder="Contoh: ADILLA, atau AULIA..." autocomplete="off" oninput="cariSiswa()">
+<div id="saran" class="saran"></div>
+
+<label>Kelas Otomatis Terisi</label>
+<input type="text" id="kelasOtomatis" placeholder="Otomatis terisi setelah pilih nama" readonly style="background:#f8fafc">
+<label>Mata Pelajaran Hari Ini</label>
+<select id="mapel"><option>Bahasa Indonesia</option><option>Matematika</option><option>IPA</option><option>IPS</option><option>Bahasa Inggris</option><option>Informatika</option><option>PAI / Agama</option><option>PPKn</option><option>Seni Budaya</option><option>Prakarya</option><option>PJOK</option><option>Bahasa Sunda</option></select>
+<button onclick="absen()">✅ Saya Sudah Siap Ujian</button>
+<p id="hasilAbsen" style="text-align:center;margin-top:12px;font-weight:700;color:#15803d"></p>
+<p style="text-align:center;margin-top:10px;font-size:13px"><a href="https://forms.gle/T3vgZcp14DfQzKPk7" target="_blank" style="color:#0b2a5b;font-weight:700"></a></p>
+</div>
+</section>
+
+<footer><b>SMPN 2 CIPONGKOR • Semester Ganjil 2026/2027</b><br><span style="opacity:.8">Kelas 7A-7E • 8A-8E • 9A-9F | Hubungi Wali Kelas / Panitia PSAS</span><br><br>© 2026 lasdiana - Cipongkor, Bandung Barat</footer>
+
+<script>
+let semuaSiswa = [];
+let siswaTerpilih = null;
+
+// LOAD DARI FILE siswa.xlsx DI GITHUB
+fetch('siswa.xlsx').then(r=>r.arrayBuffer()).then(data=>{
+  const wb = XLSX.read(data,{type:'array'});
+  const ws = wb.Sheets[wb.SheetNames[0]];
+  const rows = XLSX.utils.sheet_to_json(ws,{header:1});
+  // Baris 1 = header, baris 2 dst = data
+  for(let i=1;i<rows.length;i++){
+    if(!rows[i][0]) continue;
+    let nama = String(rows[i][0]).trim();
+    let kelas = String(rows[i][1]).trim().replace('-','').toUpperCase(); // 7-A jadi 7A
+    semuaSiswa.push({nama, kelas});
+  }
+  document.getElementById('totalSiswa').innerText = semuaSiswa.length + ' siswa';
+}).catch(e=>{
+  document.getElementById('totalSiswa').innerText = 'File siswa.xlsx belum di-upload';
+});
+
+function filterKelas(){
+  document.getElementById('cariNama').value='';
+  document.getElementById('saran').style.display='none';
+  document.getElementById('kelasOtomatis').value='';
+  siswaTerpilih=null;
+}
+
+function cariSiswa(){
+  const kata = document.getElementById('cariNama').value.toUpperCase().trim();
+  const kelasPilih = document.getElementById('kelas').value;
+  const box = document.getElementById('saran');
+  if(kata.length < 2){ box.style.display='none'; return; }
+  let hasil = semuaSiswa.filter(s => s.nama.includes(kata));
+  if(kelasPilih) hasil = hasil.filter(s => s.kelas === kelasPilih);
+  hasil = hasil.slice(0,10);
+  if(hasil.length===0){ box.innerHTML='<div>Tidak ditemukan. Coba ketik nama lain / cek kelas.</div>'; box.style.display='block'; return; }
+  box.innerHTML = hasil.map((s,i)=>`<div onclick="pilihSiswa('${s.nama.replace(/'/g,"\\'")}','${s.kelas}')"><b>${s.nama}</b> <span style="color:#64748b">- Kelas ${s.kelas}</span></div>`).join('');
+  box.style.display='block';
+}
+
+function pilihSiswa(nama, kelas){
+  document.getElementById('cariNama').value = nama;
+  document.getElementById('kelasOtomatis').value = 'Kelas ' + kelas;
+  document.getElementById('kelas').value = kelas;
+  document.getElementById('saran').style.display='none';
+  siswaTerpilih = {nama, kelas};
+}
+
+const target = new Date("2026-12-02T07:30:00").getTime();
+setInterval(()=>{
+  const jarak = target - new Date().getTime();
+  if(jarak<0) return;
+  document.getElementById("d").innerText = Math.floor(jarak/(1000*60*60*24));
+  document.getElementById("h").innerText = Math.floor((jarak%(1000*60*60*24))/(1000*60*60));
+  document.getElementById("m").innerText = Math.floor((jarak%(1000*60*60))/(1000*60));
+  document.getElementById("s").innerText = Math.floor((jarak%(1000*60))/1000);
+},1000);
+
+function absen(){
+  const nama = document.getElementById('cariNama').value;
+  const kelas = document.getElementById('kelasOtomatis').value || document.getElementById('kelas').value;
+  const mapel = document.getElementById('mapel').value;
+  if(!nama){ alert('Cari dulu namanya ya! Ketik namamu, lalu klik nama yang muncul.'); return; }
+  document.getElementById('hasilAbsen').innerText = 'Terima kasih, ' + nama + ' ('+kelas+') - ' + mapel + ' sudah absen. Selamat mengerjakan PSAS! 🎉';
+}
+</script>
+</body>
+</html>
